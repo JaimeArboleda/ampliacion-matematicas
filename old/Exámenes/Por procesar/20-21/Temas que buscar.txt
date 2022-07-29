@@ -1,0 +1,5 @@
+Problemas de autovalores
+
+Poisson Formula para ecuación laplace condición dirichlet
+
+Funciones de Bessel
