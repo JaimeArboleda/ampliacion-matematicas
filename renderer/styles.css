@@ -1,0 +1,95 @@
+:root {
+    --red: #991b1b;
+    --orange: #ea580c;
+    --yellow: #facc15;
+    --green: #84cc16;
+    --blue: #1e3a8a;
+    --purple: #581c87;
+    --small-size: 0.8em;
+    --normal-size: 1em;
+    --big-size: 1.2em;
+    --huge-size: 1.4em;
+    --katex-margin: 0.3em;
+}
+
+
+body {
+    font-family: KaTeX_Main;
+    width: 210mm;
+    height: 297mm;
+}
+
+.header {
+    height: 2.5cm;
+    position: relative;
+}
+.header img {
+    clip-path: inset(0px 73% 0px 0px);
+    height: 2.5cm;
+    top: 0.5cm;
+    position: absolute;
+}
+
+.header .title {
+    font-weight: 700;
+    font-size: var(--huge-size);
+    position: absolute;
+    left: 4.5cm;
+    margin-top: 1cm;
+    width: max-content;
+}
+
+.main {
+    margin-top: 2cm;
+    left: 2cm;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.main .section {
+    border: 2px solid var(--purple);
+    border-radius: 5px;
+    width: 47vw;
+    padding: 5px;
+}
+
+.section .title {
+    font-weight: 600;
+    font-size: var(--big-size);
+    color: var(--purple);
+}
+
+.section .text {
+    color: var(--blue);
+    font-size: var(--normal-size);
+}
+.section .text.minor {
+    font-size: var(--small-size);
+}
+
+.section .text.indented {
+    padding-left: 4px;
+}
+
+.equation .katex .base {
+    color: var(--blue);
+    font-size: var(--normal-size);
+}
+
+.equation.important .katex .base {
+    color: var(--red);
+    font-size: var(--normal-size);
+}
+
+.equation.minor .katex .base {
+    font-size: var(--small-size);
+}
+
+.katex-display {
+    margin: var(--katex-margin);
+}
+/*TODO: body as flex box sized as A4, sections with background and border, colors for different parts... */
