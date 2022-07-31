@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../katex/katex.min.css" >
+    <link rel="stylesheet" href="styles.css" >
+    <script defer src="../katex/katex.min.js" ></script>
+    <script defer src="../katex/auto-render.min.js" 
+        onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  </head><body class=" summary">
+    <div class="header">
+      <img src="../images/full-logo.png">
+      <div class="container">
+          <div class="subject">
+              Ampliación de Matemáticas
+          </div>
+          <div class="title">
+              Variable Compleja (1)
+          </div>
+      </div>
+    </div>
+    <div class="main">
+    <div class="section"><div class="title">  Plano Complejo </div><div class="text"> •  Cambio de coordenadas cartesianas a polares: </div><div class="equation important"> $$ a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}$$ </div><div class="text"> •  Cambio inverso: </div><div class="equation important"> $$ \rho \cdot e^{i\theta} \rightarrow \begin{cases} a = \rho \cos(\theta) \\ b = \rho \sin(\theta) \end{cases}$$ </div><div class="text"> •  Argumentos de un complejo </div><div class="equation important"> $$ \arg(z) = \{ \theta + 2 k \pi, k \in \Z \}$$ </div><div class="text minor">  donde $\theta$ está definido como antes </div><div class="text"> •  Argumento principal </div><div class="equation important"> $$ \text{Arg}(z) = \arg(z) \cap (-\pi, \pi)$$ </div><div class="text minor">  donde $\theta$ está definido como antes </div><div class="text"> •  Logaritmos de un complejo </div><div class="equation important"> $$ \log(z) = \ln(|z|) + i \arg(z)$$ </div><div class="text minor">  donde $\arg(z)$ denota todos los argumentos posibles </div><div class="text"> •  Logaritmo principal </div><div class="equation important"> $$ \text{Log}(z) = \ln(|z|) + i \text{Arg}(z)$$ </div><div class="text minor">  Nota: ni el argumento principal ni el logaritmo principal están definidos en la siguiente región: </div><div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/arg.png" style="width: 250px; display: block; margin-left: auto; margin-right: auto;"></div></div><div class="section"><div class="title">  Funciones de variable compleja </div><div class="equation"> $$ f(z) = f(x + iy) = u(x, y) + iv(x, y)$$ </div><div class="text"> •  Condiciones de Cauchy-Riemann:  </div><div class="equation important"> $$ \begin{cases} u_x(x, y) = v_y(x, y) \\ u_y(x, y) = -v_x(x, y) \end{cases}$$ </div><div class="text"> •  f es <b>derivable</b> en $z_0$ si:  </div><div class="equation important"> $$ \cdot \text{ Satisface Cauchy-Riemann en }z_0 $$ </div><div class="equation important"> $$ \cdot \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 $$ </div><div class="text"> •  f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos.  </div><div class="text"> •  Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si: </div><div class="equation important"> $$ \nabla{h}^2 = 0$$ </div><div class="text"> •  <b>Teorema</b>: Si f es analítica en $z_0$, entonces $u$ y $v$ son armónicas en $z_0$.  </div><div class="text"> •  <b>Teorema</b>: Si $A$ es simplemente conexo, y $u$ es una función armónica, existe $v$ (<b>armónica conjugada</b>) tal que $f=u+iv$ es analítica en $A$ </div><div class="text"> •  Cálculo práctico de la armónica conjugada: </div><div class="text indented minor"> •  Resolvemos $v_y = u_x$ integrando respecto a $y$, de donde $v$ queda definida salvo una función de $x$. </div><div class="text indented minor"> •  Resolvemos $v_x = -u_y$ integrando respecto a $x$, y aplicamos condiciones iniciales si nos dan. </div></div>
+    </div>
+  </body>
+</html>

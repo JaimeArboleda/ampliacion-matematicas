@@ -11,8 +11,13 @@ const HEADER = `<!DOCTYPE html>
 const METADATA = `<body class="TYPE_PLACEHOLDER">
     <div class="header">
       <img src="../images/full-logo.png">
-      <div class="title">
-         TITLE_PLACEHOLDER
+      <div class="container">
+          <div class="subject">
+             SUBJECT_PLACEHOLDER
+          </div>
+          <div class="title">
+             TITLE_PLACEHOLDER
+          </div>
       </div>
     </div>
     <div class="main">
@@ -102,7 +107,10 @@ function parseMetadata(metadata){
         [key, value] = get_key_value(line);
         obMetadata[key] = value;
     }
-    let parsedMetadata = METADATA.replace("TYPE_PLACEHOLDER", obMetadata["type"]).replace("TITLE_PLACEHOLDER", obMetadata["title"]);
+    let parsedMetadata = METADATA
+        .replace("TYPE_PLACEHOLDER", obMetadata["type"])
+        .replace("TITLE_PLACEHOLDER", obMetadata["title"])
+        .replace("SUBJECT_PLACEHOLDER", obMetadata["subject"]);
     return [parsedMetadata, obMetadata["sections_order"]];
 }
 
@@ -125,7 +133,11 @@ function parseSection(section){
         if (keys.some(e => (e === "eq"))){
             value = "$$$$" + value + "$$$$";
         }
-        parsedSection += `<div class="${classes}"> ${value} </div>`
+        if (keys.some(e => (e === "img"))){
+            parsedSection += `<div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/${value.trim()}" style="width: ${keys[1]}px; display: block; margin-left: auto; margin-right: auto;"></div>`
+        } else{
+            parsedSection += `<div class="${classes}"> ${value} </div>`
+        }
     }
     return start + parsedSection + end;
 }

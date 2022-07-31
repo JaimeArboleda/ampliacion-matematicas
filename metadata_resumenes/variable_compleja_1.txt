@@ -1,0 +1,43 @@
+type: summary
+subject: Ampliación de Matemáticas
+title: Variable Compleja (1)
+sections_order: [0, 1]
+
+begin_section
+tl: Plano Complejo
+btx: Cambio de coordenadas cartesianas a polares:
+eq im: a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}
+btx: Cambio inverso:
+eq im: \rho \cdot e^{i\theta} \rightarrow \begin{cases} a = \rho \cos(\theta) \\ b = \rho \sin(\theta) \end{cases}
+btx: Argumentos de un complejo
+eq im: \arg(z) = \{ \theta + 2 k \pi, k \in \Z \}
+tx m: donde $\theta$ está definido como antes
+btx: Argumento principal
+eq im: \text{Arg}(z) = \arg(z) \cap (-\pi, \pi)
+tx m: donde $\theta$ está definido como antes
+btx: Logaritmos de un complejo
+eq im: \log(z) = \ln(|z|) + i \arg(z)
+tx m: donde $\arg(z)$ denota todos los argumentos posibles
+btx: Logaritmo principal
+eq im: \text{Log}(z) = \ln(|z|) + i \text{Arg}(z)
+tx m: Nota: ni el argumento principal ni el logaritmo principal están definidos en la siguiente región:
+img 250: arg.png
+end_section
+
+begin_section
+tl: Funciones de variable compleja
+eq: f(z) = f(x + iy) = u(x, y) + iv(x, y)
+btx: Condiciones de Cauchy-Riemann: 
+eq im: \begin{cases} u_x(x, y) = v_y(x, y) \\ u_y(x, y) = -v_x(x, y) \end{cases}
+btx: f es <b>derivable</b> en $z_0$ si: 
+eq im: \cdot \text{ Satisface Cauchy-Riemann en }z_0 
+eq im: \cdot \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 
+btx: f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos. 
+btx: Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si:
+eq im: \nabla{h}^2 = 0
+btx: <b>Teorema</b>: Si f es analítica en $z_0$, entonces $u$ y $v$ son armónicas en $z_0$. 
+btx: <b>Teorema</b>: Si $A$ es simplemente conexo, y $u$ es una función armónica, existe $v$ (<b>armónica conjugada</b>) tal que $f=u+iv$ es analítica en $A$
+btx: Cálculo práctico de la armónica conjugada:
+btx in m: Resolvemos $v_y = u_x$ integrando respecto a $y$, de donde $v$ queda definida salvo una función de $x$.
+btx in m: Resolvemos $v_x = -u_y$ integrando respecto a $x$, y aplicamos condiciones iniciales si nos dan.
+end_section

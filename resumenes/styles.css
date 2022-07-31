@@ -29,14 +29,20 @@ body {
     top: 0.5cm;
     position: absolute;
 }
-
-.header .title {
-    font-weight: 700;
-    font-size: var(--huge-size);
+.header div.container {
     position: absolute;
     left: 4.5cm;
-    margin-top: 1cm;
+    top: 1cm;
     width: max-content;
+}
+.header .subject {
+    font-weight: 700;
+    font-size: var(--huge-size);
+}
+
+.header .title {
+    font-weight: 600;
+    font-size: var(--big-size);
 }
 
 .main {
@@ -63,11 +69,12 @@ body {
     color: var(--purple);
 }
 
-.section .text {
+.section > .text {
     color: var(--blue);
     font-size: var(--normal-size);
+    margin: var(--katex-margin);
 }
-.section .text.minor {
+.section > .text.minor {
     font-size: var(--small-size);
 }
 
