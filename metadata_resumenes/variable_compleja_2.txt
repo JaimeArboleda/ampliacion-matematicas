@@ -35,7 +35,9 @@ img 200: laurent_disk.png
 tx: Se llama <b>parte principal</b> de la serie de Laurent a la parte correspondiente a los exponentes negativos. Es decir: 
 eq: \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =
 eq: = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} 
-btx: <b>Teorema</b>: La función $f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n$ es analítica dentro del anillo de convergencia.
+btx: <b>Teorema</b>: La función 
+eq: f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n
+tx: es analítica dentro del anillo de convergencia.
 btx m in: Además, la integración y derivación se pueden hacer término a término con la serie. 
 btx: <b>Teorema</b>: Si una fución $f(z)$ es analítica en un anillo (caso importante: cuando es analítica en $|z-z_0| < R$ salvo en $z_0$), entonces tiene un desarrollo de Laurent en dicho anillo
 end_section

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../katex/katex.min.css" >
+    <link rel="stylesheet" href="styles.css" >
+    <script defer src="../katex/katex.min.js" ></script>
+    <script defer src="../katex/auto-render.min.js" 
+        onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  </head><body class=" summary">
+    <div class="header">
+      <img src="../images/full-logo.png">
+      <div class="container">
+          <div class="subject">
+              Ampliación de Matemáticas
+          </div>
+          <div class="title">
+              Variable Compleja (3)
+          </div>
+      </div>
+    </div>
+    <div class="main">
+    <div class="section"><div class="title">  Integración </div><div class="text">  Dada una función $f:\mathbb{C} \rightarrow \mathbb{C}$ compleja (no necesariamente analítica) y una curva $\Gamma$, definimos su <b>integral de línea</b> como: </div><div class="equation important"> $$ \int_{\Gamma} f(z)dz = \int_{t_0}^{t_1}f(\gamma(t)) \gamma '(t) dt $$ </div><div class="text indented minor">  Donde $\gamma(t)$ es una parametrización cualquiera de la curva $\Gamma$. Veamos algunas propiedades importantes.  </div><div class="text"> •  El resultado <b>no depende</b> de la parametrización (está bien definida). </div><div class="text"> •  Dado un dominio simplemente conexo $D$, dos puntos $z_0$ y $z_1$ de $D$, y dadas dos curvas $\Gamma_1$ y $\Gamma_2$ uniendo ambos puntos, ambas en $D$, si la función $f$ es analítica en $D$, entonces la integral <b>no depende del camino</b>:  </div><div class="equation important"> $$ \int_{\Gamma_1}f(z) dz = \int_{\Gamma_2}f(z) dz  $$ </div><div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/line_integral.png" style="width: 300px; display: block; margin-left: auto; margin-right: auto;"></div><div class="text"> •  Si $D$ es un dominio simplemente conexo y $f$ es una función analítica en $D$, entonces la integral sobre cualquier curva cerrada de $D$ es 0:  </div><div class="equation important"> $$ \oint_{\gamma} f(z)dz = 0 \text{ , } \forall \gamma \subset D$$ </div><div class="text indented minor"> •  Nota: esto permite definir una <b>primitiva</b> de $f$:  </div><div class="equation minor indented"> $$ F(z) = \int_{z_0}^z f(w)dw $$ </div><div class="text indented minor">  Donde la integral se realiza tomando cualquier curva que una $z_0$ con $z$ </div></div><div class="section"><div class="title">  Teorema de Cauchy </div><div class="text">  Si $f$ es una función analítica en un dominio $D$, $\gamma$ es una circunferencia en $D$ orientada de manera antihoraria, y $z_0$ es un punto cualquiera del interior de la circunferencia, entonces: </div><div class="equation important"> $$ f(z_0) = \frac{1}{2\pi i}\oint_{\gamma}\frac{f(z)}{z-z_0}dz$$ </div><div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/cauchy.png" style="width: 100px; display: block; margin-left: auto; margin-right: auto;"></div><div class="text indented minor"> •  Nota: este teorema es un caso particular del teorema de los residuos.  </div></div><div class="section"><div class="title">  Ceros y singularidades </div><div class="text">  Una función analítica $f$ tiene un <b>cero de orden m</b> en $z_0$ si: </div><div class="equation minor"> $$ f(z_0)=...=f^{m-1}(z_0) = 0 \text{ , } f^m(z_0) \neq 0$$ </div><div class="text">  Una función analítica en todos los puntos de un entorno de $z_0$ salvo en $z_0$ se dice que tiene una <b>singularidad aislada</b> en $z_0$. Las singularidades aisladas pueden ser:  </div><div class="text minor indented"> •  <b>Evitable</b>: Cuando  </div><div class="equation minor indented"> $$ \exists \lim_{z\rightarrow z_0}f(z) \text{ y es finito}$$ </div><div class="text minor indented"> •  <b>Polo de orden m</b>: Cuando $(z-z_0)^m f(z)$ es analítica en $z_0$, pero $(z-z_0)^{m-1} f(z)$ no. En ese caso, se cumple que </div><div class="equation minor indented"> $$  \exists \lim_{z\rightarrow z_0}f(z) = \infty$$ </div><div class="text minor indented"> •  <b>Esencial</b>: Cuando  </div><div class="equation minor indented"> $$ \nexists \lim_{z\rightarrow z_0}f(z)$$ </div></div>
+    </div>
+  </body>
+</html>
