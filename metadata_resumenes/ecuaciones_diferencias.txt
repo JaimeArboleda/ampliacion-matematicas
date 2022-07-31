@@ -24,7 +24,7 @@ btx: Solución particular de la completa
 eq im: \vec{y_P}^n = \sum A^{n-1-i} \cdot G(i)
 btx: Solución general de la completa
 eq im: y^n = y_H^n + y_P^n 
-btx: Forma práctica de calcular la solución: si $A$ es diagonalizable, y $\vec{v_j}$ son los autovectores de $A$, entonces:
+tx: Forma práctica de calcular la solución: si $A$ es diagonalizable, y $\vec{v_j}$ son los autovectores de $A$, entonces:
 eq im: \vec{y_H}^n = \sum_{i=1}^k c_i \cdot \lambda_i^n \cdot \vec{v_i}
 end_section
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../katex/katex.min.css" >
+    <link rel="stylesheet" href="styles.css" >
+    <script defer src="../katex/katex.min.js" ></script>
+    <script defer src="../katex/auto-render.min.js" 
+        onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  </head><body class=" summary">
+    <div class="header">
+      <img src="../images/full-logo.png">
+      <div class="container">
+          <div class="subject">
+              Ampliación de Matemáticas
+          </div>
+          <div class="title">
+              Variable Compleja (2)
+          </div>
+      </div>
+    </div>
+    <div class="main">
+    <div class="section"><div class="title">  Series de Taylor </div><div class="equation"> $$ f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n$$ </div><div class="text">  El <b>disco de convergencia</b> de la serie se define con un radio $R$ (puede ser $0$ o $\inf$) tal que: </div><div class="text minor indented"> •  $f$ converge en $\{|z-z_0| < R\}$ </div><div class="text minor indented"> •  $f$ diverge en $\{|z-z_0| > R\}$ </div><div class="text minor">  Disco de convergencia:  </div><div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/taylor_disk.png" style="width: 100px; display: block; margin-left: auto; margin-right: auto;"></div><div class="text">  <b>Teorema</b>: La función  </div><div class="equation"> $$ f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n$$ </div><div class="text">  es analítica dentro del disco de convergencia. </div><div class="text minor indented">  Además, la integración y derivación se pueden hacer término a término con la serie.  </div><div class="text">  <b>Teorema</b>: Si una fución $f(z)$ es analítica en un entorno de $z_0$, tiene un desarrollo de Taylor con radio de convergencia hasta la primera singularidad de $f$ </div><div class="text"> •  Algunos desarrollos importantes:  </div><div class="equation minor important"> $$ e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}$$ </div><div class="equation minor important"> $$ \cos(z) = \sum_{n=0}^{\infty} \frac{z^{2n}(-1)^n}{(2n)!} \text{ , } \sin(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}(-1)^n}{(2n+1)!}$$ </div><div class="equation minor important"> $$ \cosh(z) = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} \text{ , } \sinh(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}$$ </div><div class="equation minor important"> $$ \ln(1+z) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}z^n}{n} \text{ en } |z| < 1$$ </div><div class="equation minor important"> $$ \frac{1}{1-z} = \sum_{n=0}^{\infty} z^n \text{ en } |z| < 1$$ </div></div><div class="section"><div class="title">  Series de Laurent </div><div class="equation"> $$ f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n$$ </div><div class="text"> •  El <b>anillo de convergencia</b> de la serie se define con dos radios, el radio interior $R_1$ (puede ser $0$) y el radio exterior $R_2$ (puede ser $\infty$) tal que: </div><div class="text minor indented"> •  $f$ converge en $\{R_1 < |z-z_0| < R_2\}$ </div><div class="text minor indented"> •  $f$ diverge en $\{|z-z_0| < R_1\} \cup \{|z-z_0| > R_2\}$ </div><div class="text minor">  Anillo de convergencia:  </div><div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/laurent_disk.png" style="width: 200px; display: block; margin-left: auto; margin-right: auto;"></div><div class="text">  Se llama <b>parte principal</b> de la serie de Laurent a la parte correspondiente a los exponentes negativos. Es decir:  </div><div class="equation"> $$ \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =$$ </div><div class="equation"> $$ = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} $$ </div><div class="text"> •  <b>Teorema</b>: La función $f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n$ es analítica dentro del anillo de convergencia. </div><div class="text minor indented"> •  Además, la integración y derivación se pueden hacer término a término con la serie.  </div><div class="text"> •  <b>Teorema</b>: Si una fución $f(z)$ es analítica en un anillo (caso importante: cuando es analítica en $|z-z_0| < R$ salvo en $z_0$), entonces tiene un desarrollo de Laurent en dicho anillo </div></div>
+    </div>
+  </body>
+</html>
