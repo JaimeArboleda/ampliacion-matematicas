@@ -78,8 +78,11 @@ body {
     font-size: var(--small-size);
 }
 
-.section .text.indented {
+.indented {
     padding-left: 4px;
+}
+.equation.indented {
+    margin: var(--katex-margin);
 }
 
 .equation .katex .base {

@@ -2,13 +2,13 @@ const HEADER = `<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="../katex/katex.min.css" >
-    <link rel="stylesheet" href="styles.css" >
+    <link rel="stylesheet" href="../styles/generic.css" >
     <script defer src="../katex/katex.min.js" ></script>
     <script defer src="../katex/auto-render.min.js" 
         onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
   </head>`
 
-const METADATA = `<body class="TYPE_PLACEHOLDER">
+ const METADATA = `<body class="LAYOUT_PLACEHOLDER">
     <div class="header">
       <img src="../images/full-logo.png">
       <div class="container">
@@ -24,28 +24,24 @@ const METADATA = `<body class="TYPE_PLACEHOLDER">
     SECTIONS_PLACEHOLDER
     </div>
   </body>
-</html>
-`
+</html>`
 
-const DICT = {
-    btx: "text",
+const SPECIAL_CLASSES = {
+    btx: "bullet text",
     tx: "text",
-    tl: "title",
     eq: "equation",
-    m: "minor",
-    im: "important",
-    in: "indented",
+    beq: "bullet equation",
 }
 
 
 const filename = process.argv[2];
 const filenameOut = process.argv[3];
-console.log(filename);
+
 var fs = require('fs');
 const { parse } = require('path');
 
 // Open file demo.txt in read mode
-fs.readFile(`../metadata_resumenes/${filename}`, 'utf8', function (err, data) {
+fs.readFile(`../text_sources/${filename}`, 'utf8', function (err, data) {
     page = parseData(data);
     prefix = filename.split(".")[0];
     fs.writeFile(filenameOut, page, err => {
@@ -69,9 +65,14 @@ function parseData(data) {
         if (line.includes("begin_section")){
             if (state === "on_metadata"){
                 state = "on_sections";
+            } 
+            let sectClass = line.split(",");
+            if (sectClass.length === 1){
+                sectClass = "none";
             } else {
-                new_section = "";
+                sectClass = sectClass[1];
             }
+            new_section = sectClass;
         } else if (line.includes("end_section")){
             sections.push(new_section);
             continue;
@@ -108,44 +109,65 @@ function parseMetadata(metadata){
         obMetadata[key] = value;
     }
     let parsedMetadata = METADATA
-        .replace("TYPE_PLACEHOLDER", obMetadata["type"])
+        .replace("LAYOUT_PLACEHOLDER", obMetadata["layout"])
         .replace("TITLE_PLACEHOLDER", obMetadata["title"])
         .replace("SUBJECT_PLACEHOLDER", obMetadata["subject"]);
+    if (! ("sections_order" in obMetadata)){
+        obMetadata["sections_order"] = "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]";
+    }
     return [parsedMetadata, obMetadata["sections_order"]];
 }
 
 function parseSection(section){
     let lines = section.split("\n");
-    const start = '<div class="section">';
+    let sectClass = lines[0];
+    const start = `<div class="section ${sectClass}">`;
     const end = '</div>';
       
     parsedSection = "";
-    for (line of lines) {
+    for (line of lines.splice(1)) {
         if (line.length < 2){
             continue;
         }
         [key, value] = get_key_value(line);
-        let keys = Array.from(key.split(" "));
-        let classes = keys.map(a => DICT[a]).join(" ");
-        if (keys.some(e => (e === "btx"))) {
-            value = '• ' + value;
+        let classes = Array.from(key.split(" "));
+        if (classes.some(e => (e === "tx"))) {
+            value = parseValue(value);
+        } else if (classes.some(e => (e === "btx"))) {
+            value = '• ' + parseValue(value);
+        } else if (classes.some(e => (e === "eq"))){
+            if (classes.some(e => (e === "pl"))){
+                value = "$$\\displaystyle{" + value + "}$$";
+            } else{
+                value = "$$$$" + value + "$$$$";
+            }
+        } else if (classes.some(e => (e === "beq"))){
+            value = "• $$\\displaystyle{" + value + "}$$";
         }
-        if (keys.some(e => (e === "eq"))){
-            value = "$$$$" + value + "$$$$";
-        }
-        if (keys.some(e => (e === "img"))){
-            parsedSection += `<div style="width: 47vw;margin: var(--katex-margin);"><img src="../images/${value.trim()}" style="width: ${keys[1]}px; display: block; margin-left: auto; margin-right: auto;"></div>`
+
+        if (classes.some(e => (e === "img"))){
+            let imgSize = classes.filter(e => Number.isInteger(Number(e)))[0];
+            let imgClasses = classes.filter(e => ! Number.isInteger(Number(e)));
+            parsedSection += `<img class="${imgClasses.join(" ")}" src="../images/${value.trim()}" style="width: ${imgSize}px;">`
         } else{
-            parsedSection += `<div class="${classes}"> ${value} </div>`
+            parsedSection += `<div class="${key}"> ${value} </div>`
         }
     }
     return start + parsedSection + end;
 }
 
+function parseValue(value){
+    // converts single * to <i> and double * to <b>
+    return value;
+}
 
 function combine(parsedSections, parsedMetadata, sectionsOrder, output){
     let renderedSections = "";
-    eval(sectionsOrder).forEach(i => renderedSections += parsedSections[i]);
+    for (i in eval(sectionsOrder)){
+        if (i < parsedSections.length){
+            renderedSections += parsedSections[i];
+        }
+    }
     let body = parsedMetadata.replace("SECTIONS_PLACEHOLDER", renderedSections);
     return output + body;
 }

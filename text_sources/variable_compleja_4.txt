@@ -1,0 +1,43 @@
+layout: two-columns
+subject: Ampliación de Matemáticas
+title: Variable Compleja (4)
+sections_order: [0, 1]
+
+begin_section, boxed cp
+tx wb sb cp: Residuos
+tx: Dada una función analítica, y dada una singularidad $z_0$, definimos el <b>residuo</b> de $f$ en $z_0$ como:
+eq cr: \text{Res}(f, z_0) = a_{-1} 
+tx i1 ss: Donde  $a_{-1}$ es el primer término de la parte principal de la serie de Laurent de $f$ en $z_0$
+tx: Forma práctica de calcular los residuos:
+btx i1 ss: Si $z_0$ es un polo de orden 1, entonces 
+pl i1 eq ss: \text{Res}(f, z_0) = \lim_{z \rightarrow z_0} (z-z_0)f(z)
+btx i1 ss: Si $z_0$ es un polo de orden m, entonces 
+pl i1 eq ss: \text{Res}(f, z_0) = \frac{g^{m-1}(z_0)}{(m-1)!} \text{ con } g(z) = f(z) \cdot (z-z_0)^m
+btx i1 ss: Si $f(z) = \frac{P(z)}{Q(z)}$, con $P(z_0) \neq 0$ y $Q(z_0) = 0$ de orden 1, entonces:
+i1 eq ss: \text{Res}(f, z_0) = \frac{P(z_0)}{Q'(z_0)}
+btx: <b>Teorema de los residuos</b>: Sea $f$ analítica en $D$ salvo en un número finito de puntos. Sea $\gamma$ curva cerrada simple orientada positivamente en $D$. Entonces: 
+eq cr: \oint_{\gamma} f(z)dz = 2 \pi i \sum \text{Res}(f, z_i)
+tx i1 ss: Donde $z_i$ son las singularidades (número finito) de $f$ que están dentro de la curva $\gamma$. 
+tx: <b>Residuo en el infinito</b>: Si $f$ es analítica en $|z|>R$, $\text{Res}(f, \infty) = \text{Res}\left(\frac{-1}{z^2}f\left(\frac{1}{z}\right), 0\right)$
+btx: <b>Teorema de los residuos (versión del infinito)</b>: Sea $\gamma$ curva cerrada simple orientada positivamente tal que $f$ es analítica fuera de $\gamma$ salvo en un número finito de puntos. Entonces:
+eq cr: \oint_{\gamma} f(z)dz = -2 \pi i \sum \text{Res}(f, z_i)
+tx i1 ss: Donde $z_i$ son las singularidades de $f$ que están fuera de la curva $\gamma$, incluyendo el infinito. Nota: es esencial que el número de singularidades sea finito. 
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Aplicaciones de los residuos
+btx: <b>Lema 1</b>: 
+eq: \lim_{\substack{|z|\rightarrow \infty \\ Im(z) > 0}} |zf(z)| = 0 \Rightarrow \lim_{R \rightarrow \infty}\int_{\gamma_R}f(z) = 0
+btx: <b>Lema 2</b>: 
+eq: \lim_{\epsilon \rightarrow 0} \int_{\gamma_{\epsilon}}f(z) = - \pi i \text{Res}(f, z_0)
+tx i1 ss: donde $\gamma_R$ es la semicircunferencia positiva de radio $R$ y centro el origen y $\gamma_{\epsilon}$ es la semicircunferencia positiva de centro $z_0$ y radio $\epsilon$: 
+img 130 pc: lemas.png
+tx: El <b>Valor Principal</b> de una integral real se puede calcular aplicando el teorema de los residuos. Ejemplo: supongamos una función real con dos singularidades en el eje $X$, $z_2$ y $z_3$, y una singularidad en el semiplano superior complejo, $z_1$. Entonces:
+img 250 pc: vp_integral.png
+eq cr ss: \text{V.P.}\int_{-\infty}^{\infty}f(x)dx = 2 \pi i \text{Res}(f, z_1) +
+eq cr ss: + \pi i \text{Res}(f, z_2)) + \pi i \text{Res}(f, z_3) 
+tx: Algunos cambios útiles para resolver integrales:
+btx ss i1: $\int_0^{2\pi}f(\sin(\theta), cos(\theta)d\theta$. Cambiamos a $\sin(\theta) = \frac{z-1/z}{2i}$, $\cos(\theta) = \frac{z+1/z}{2i}$
+btx ss i1: $\int_{-\infty}^{\infty}\sin(ax)/p(x)dx$. Cambiamos a $e ^ {iax} = \cos(ax) + i \sin(ax)$, y resolvemos dos integrales.
+btx ss i1: $\int_{-\infty}^{\infty}\cos^2(ax)/p(x)dx$. Cambiamos a $\cos ^2(z) =\left(\frac{e^{iz} + e^{-iz}}{2}  \right)^2$
+end_section

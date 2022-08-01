@@ -1,40 +1,40 @@
-type: summary
+layout: two-columns
 subject: Ampliación de Matemáticas
 title: Variable Compleja (2)
 sections_order: [0, 1]
 
-begin_section
-tl: Series de Taylor
+begin_section, boxed cp
+tx wb sb cp: Series de Taylor
 eq: f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n
-tx: El <b>disco de convergencia</b> de la serie se define con un radio $R$ (puede ser $0$ o $\inf$) tal que:
-btx m in: $f$ converge en $\{|z-z_0| < R\}$
-btx m in: $f$ diverge en $\{|z-z_0| > R\}$
-tx m: Disco de convergencia: 
-img 100: taylor_disk.png
+tx: El <b>disco de convergencia</b> de la serie se define con un radio $R$ (puede ser $0$ o $\infty$) tal que:
+btx ss i1: $f$ converge en $\{|z-z_0| < R\}$
+btx ss i1: $f$ diverge en $\{|z-z_0| > R\}$
 tx: <b>Teorema</b>: La función 
 eq: f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n
 tx: es analítica dentro del disco de convergencia.
-tx m in: Además, la integración y derivación se pueden hacer término a término con la serie. 
+tx ss i1: Además, la integración y derivación se pueden hacer término a término con la serie. 
 tx: <b>Teorema</b>: Si una fución $f(z)$ es analítica en un entorno de $z_0$, tiene un desarrollo de Taylor con radio de convergencia hasta la primera singularidad de $f$
 btx: Algunos desarrollos importantes: 
-eq m im: e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}
-eq m im: \cos(z) = \sum_{n=0}^{\infty} \frac{z^{2n}(-1)^n}{(2n)!} \text{ , } \sin(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}(-1)^n}{(2n+1)!}
-eq m im: \cosh(z) = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} \text{ , } \sinh(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}
-eq m im: \ln(1+z) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}z^n}{n} \text{ en } |z| < 1
-eq m im: \frac{1}{1-z} = \sum_{n=0}^{\infty} z^n \text{ en } |z| < 1
+pl eq ss i1 cr: e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}
+pl eq ss i1 cr: \cos(z) = \sum_{n=0}^{\infty} \frac{z^{2n}(-1)^n}{(2n)!} 
+pl eq ss i1 cr: \sin(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}(-1)^n}{(2n+1)!}
+pl eq ss i1 cr: \cosh(z) = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} 
+pl eq ss i1 cr: \sinh(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}
+pl eq ss i1 cr: \ln(1+z) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}z^n}{n} \text{ en } |z| < 1
+pl eq ss i1 cr: \frac{1}{1-z} = \sum_{n=0}^{\infty} z^n \text{ en } |z| < 1
 end_section
 
-begin_section
-tl: Series de Laurent
+begin_section, boxed cp
+tx wb sb cp: Series de Laurent
 eq: f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n
 btx: El <b>anillo de convergencia</b> de la serie se define con dos radios, el radio interior $R_1$ (puede ser $0$) y el radio exterior $R_2$ (puede ser $\infty$) tal que:
-btx m in: $f$ converge en $\{R_1 < |z-z_0| < R_2\}$
-btx m in: $f$ diverge en $\{|z-z_0| < R_1\} \cup \{|z-z_0| > R_2\}$
-tx m: Anillo de convergencia: 
-img 200: laurent_disk.png
+btx ss i1: $f$ converge en $\{R_1 < |z-z_0| < R_2\}$
+btx ss i1: $f$ diverge en $\{|z-z_0| < R_1\} \cup \{|z-z_0| > R_2\}$
+tx ss: Anillo de convergencia: 
+img 200 pc: laurent_disk.png
 tx: Se llama <b>parte principal</b> de la serie de Laurent a la parte correspondiente a los exponentes negativos. Es decir: 
-eq: \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =
-eq: = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} 
+eq ss: \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =
+eq ss: = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} 
 btx: <b>Teorema</b>: La función 
 eq: f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n
 tx: es analítica dentro del anillo de convergencia.

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../katex/katex.min.css" >
+    <link rel="stylesheet" href="../styles/generic.css" >
+    <script defer src="../katex/katex.min.js" ></script>
+    <script defer src="../katex/auto-render.min.js" 
+        onload="renderMathInElement(document.body,{delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}]});"></script>
+  </head><body class=" two-columns">
+    <div class="header">
+      <img src="../images/full-logo.png">
+      <div class="container">
+          <div class="subject">
+              Ampliación de Matemáticas
+          </div>
+          <div class="title">
+              Variable Compleja (2)
+          </div>
+      </div>
+    </div>
+    <div class="main">
+    <div class="section  boxed cp"><div class="tx wb sb cp">  Series de Taylor </div><div class="eq"> $$ f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n$$ </div><div class="tx">  El <b>disco de convergencia</b> de la serie se define con un radio $R$ (puede ser $0$ o $\infty$) tal que: </div><div class="btx ss i1"> •  $f$ converge en $\{|z-z_0| < R\}$ </div><div class="btx ss i1"> •  $f$ diverge en $\{|z-z_0| > R\}$ </div><div class="tx">  <b>Teorema</b>: La función  </div><div class="eq"> $$ f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n$$ </div><div class="tx">  es analítica dentro del disco de convergencia. </div><div class="tx ss i1">  Además, la integración y derivación se pueden hacer término a término con la serie.  </div><div class="tx">  <b>Teorema</b>: Si una fución $f(z)$ es analítica en un entorno de $z_0$, tiene un desarrollo de Taylor con radio de convergencia hasta la primera singularidad de $f$ </div><div class="btx"> •  Algunos desarrollos importantes:  </div><div class="pl eq ss i1 cr"> $\displaystyle{ e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}}$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \cos(z) = \sum_{n=0}^{\infty} \frac{z^{2n}(-1)^n}{(2n)!} }$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \sin(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}(-1)^n}{(2n+1)!}}$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \cosh(z) = \sum_{n=0}^{\infty} \frac{z^{2n}}{(2n)!} }$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \sinh(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}}$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \ln(1+z) = \sum_{n=0}^{\infty} \frac{(-1)^{n+1}z^n}{n} \text{ en } |z| < 1}$ </div><div class="pl eq ss i1 cr"> $\displaystyle{ \frac{1}{1-z} = \sum_{n=0}^{\infty} z^n \text{ en } |z| < 1}$ </div></div><div class="section  boxed cp"><div class="tx wb sb cp">  Series de Laurent </div><div class="eq"> $$ f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n$$ </div><div class="btx"> •  El <b>anillo de convergencia</b> de la serie se define con dos radios, el radio interior $R_1$ (puede ser $0$) y el radio exterior $R_2$ (puede ser $\infty$) tal que: </div><div class="btx ss i1"> •  $f$ converge en $\{R_1 < |z-z_0| < R_2\}$ </div><div class="btx ss i1"> •  $f$ diverge en $\{|z-z_0| < R_1\} \cup \{|z-z_0| > R_2\}$ </div><div class="tx ss">  Anillo de convergencia:  </div><img class="img pc" src="../images/laurent_disk.png" style="width: 200px;"><div class="tx">  Se llama <b>parte principal</b> de la serie de Laurent a la parte correspondiente a los exponentes negativos. Es decir:  </div><div class="eq ss"> $$ \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =$$ </div><div class="eq ss"> $$ = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} $$ </div><div class="btx"> •  <b>Teorema</b>: La función  </div><div class="eq"> $$ f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n$$ </div><div class="tx">  es analítica dentro del anillo de convergencia. </div><div class="btx m in"> •  Además, la integración y derivación se pueden hacer término a término con la serie.  </div><div class="btx"> •  <b>Teorema</b>: Si una fución $f(z)$ es analítica en un anillo (caso importante: cuando es analítica en $|z-z_0| < R$ salvo en $z_0$), entonces tiene un desarrollo de Laurent en dicho anillo </div></div>
+    </div>
+  </body>
+</html>

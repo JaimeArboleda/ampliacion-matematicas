@@ -1,0 +1,184 @@
+/* 
+Indentation: i1, i2
+Sizes: ss, sn, sb, sh, xxx (for images only)
+Colors: cb, cp, cr, cg, co
+Positions (for images): pl, pc, pr
+Positions (for equations): pl
+
+HEADER AND BODY CONF*/
+
+
+:root {
+    --red: #991b1b;
+    --orange: #c2410c;
+    --green: #166534;
+    --blue: #1e3a8a;
+    --purple: #581c87;
+    --small-size: 0.8em;
+    --normal-size: 1em;
+    --big-size: 1.2em;
+    --huge-size: 1.4em;
+    --katex-margin: 0.3em;
+    --indent-margin-1: 0.3em;
+    --indent-margin-2: 0.6em;
+}
+
+/* HEADER AND BODY CONF*/
+
+body {
+    font-family: KaTeX_Main;
+    width: 210mm;
+    height: 297mm;
+}
+
+.header {
+    height: 2.5cm;
+    position: relative;
+}
+.header img {
+    clip-path: inset(0px 73% 0px 0px);
+    height: 2.5cm;
+    top: 0.5cm;
+    position: absolute;
+}
+.header div.container {
+    position: absolute;
+    left: 4.5cm;
+    top: 1cm;
+    width: max-content;
+}
+.header .subject {
+    font-weight: 700;
+    font-size: var(--huge-size);
+}
+.header .title {
+    font-weight: 600;
+    font-size: var(--big-size);
+}
+
+/* MAIN CONF*/ 
+
+.main {
+    margin-top: 1cm;
+    left: 2cm;
+    width: 100vw;
+    height: 90vh;
+}
+
+.section {
+    padding: 10px;
+    font-size: var(--normal-size) !important;
+    clear: both;
+    margin: 20px 10px;
+}
+.section.boxed {
+    margin: 10px;
+}
+
+.section::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+body.one-column .section {
+    width: 95vw;
+}
+body.two-columns .main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+body.two-columns .section {
+    width: 47vw;
+}
+
+
+
+
+.section.boxed {
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.section.boxed.cb {
+    border-color: var(--blue);
+}
+.section.boxed.cp {
+    border-color: var(--purple);
+}
+.section.boxed.cr {
+    border-color: var(--red);
+}
+.section.boxed.cg {
+    border-color: var(--green);
+}
+.section.boxed.co {
+    border-color: var(--orange);
+}
+
+.section div {
+    page-break-inside: avoid;
+}
+
+.section div.cb {
+    color: var(--blue) !important;
+}
+.section div.cp {
+    color: var(--purple) !important;
+}
+.section div.cr {
+    color: var(--red) !important;
+}
+.section div.cg {
+    color: var(--green) !important;
+}
+.section div.co {
+    color: var(--orange) !important;
+}
+
+.section div.wb {
+    font-weight: 600 !important;
+}
+
+.section div.i1 {
+    padding-left: var(--indent-margin-1);
+}
+.section div.i2 {
+    padding-left: var(--indent-margin-2);
+}
+.katex-display {
+    margin: var(--katex-margin);
+}
+
+.section div.ss {
+    font-size: var(--small-size) !important;
+}
+.section div.sn {
+    font-size: var(--normal-size) !important;
+}
+.section div.sb {
+    font-size: var(--big-size) !important;
+}
+.section div.sh {
+    font-size: var(--huge-size) !important;
+}
+
+.section img {
+   padding: 10px; 
+}
+.section img.pl {
+    margin-right:15px;
+    float: left;
+}
+.section img.pc {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+}
+.section img.pr {
+    margin-left:15px;
+    float: right;
+}

@@ -1,10 +1,12 @@
-type: summary
+type: problems
 subject: Ampliación de Matemáticas
-title: Variable Compleja (1)
-sections_order: [0, 1]
+title: Solución primer parcial 2021-2022
 
 begin_section
-tl: Plano Complejo
+pb: Plano Complejo
+sl th: 
+sl dv: 
+sl fn:
 btx: Cambio de coordenadas cartesianas a polares:
 eq im: a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}
 btx: Cambio inverso:
@@ -30,8 +32,8 @@ eq: f(z) = f(x + iy) = u(x, y) + iv(x, y)
 btx: Condiciones de Cauchy-Riemann: 
 eq im: \begin{cases} u_x(x, y) = v_y(x, y) \\ u_y(x, y) = -v_x(x, y) \end{cases}
 btx: f es <b>derivable</b> en $z_0$ si: 
-eq im: \cdot \text{ Satisface Cauchy-Riemann en }z_0 
-eq im: \cdot \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 
+beq im in m: \text{ Satisface Cauchy-Riemann en }z_0 
+beq im in m: \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 
 btx: f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos. 
 btx: Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si:
 eq im: \nabla{h}^2 = 0
