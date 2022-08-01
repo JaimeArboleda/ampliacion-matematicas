@@ -1,3 +1,4 @@
+single_page: yes
 layout: two-columns
 subject: Ampliación de Matemáticas
 title: Variable Compleja (2)
@@ -14,7 +15,7 @@ eq: f(z) = \sum_{n=0}^{\infty} a_n (z-z_0)^n
 tx: es analítica dentro del disco de convergencia.
 tx ss i1: Además, la integración y derivación se pueden hacer término a término con la serie. 
 tx: <b>Teorema</b>: Si una fución $f(z)$ es analítica en un entorno de $z_0$, tiene un desarrollo de Taylor con radio de convergencia hasta la primera singularidad de $f$
-btx: Algunos desarrollos importantes: 
+tx: Algunos desarrollos importantes: 
 pl eq ss i1 cr: e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}
 pl eq ss i1 cr: \cos(z) = \sum_{n=0}^{\infty} \frac{z^{2n}(-1)^n}{(2n)!} 
 pl eq ss i1 cr: \sin(z) = \sum_{n=0}^{\infty} \frac{z^{2n+1}(-1)^n}{(2n+1)!}
@@ -27,18 +28,17 @@ end_section
 begin_section, boxed cp
 tx wb sb cp: Series de Laurent
 eq: f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n
-btx: El <b>anillo de convergencia</b> de la serie se define con dos radios, el radio interior $R_1$ (puede ser $0$) y el radio exterior $R_2$ (puede ser $\infty$) tal que:
+tx: El <b>anillo de convergencia</b> de la serie se define con dos radios, el radio interior $R_1$ (puede ser $0$) y el radio exterior $R_2$ (puede ser $\infty$) tal que:
 btx ss i1: $f$ converge en $\{R_1 < |z-z_0| < R_2\}$
 btx ss i1: $f$ diverge en $\{|z-z_0| < R_1\} \cup \{|z-z_0| > R_2\}$
-tx ss: Anillo de convergencia: 
-img 200 pc: laurent_disk.png
+img 170 pc: laurent_disk.png
 tx: Se llama <b>parte principal</b> de la serie de Laurent a la parte correspondiente a los exponentes negativos. Es decir: 
 eq ss: \text{Parte Principal f(z)} = \sum_{n=-\infty}^{-1} a_n (z-z_0)^n =
 eq ss: = \sum_{n=1}^{\infty} \frac{a_{-n}}{(z-z_0)^{n}} 
-btx: <b>Teorema</b>: La función 
+tx: <b>Teorema</b>: La función 
 eq: f(z) = \sum_{n=-\infty}^{\infty} a_n (z-z_0)^n
 tx: es analítica dentro del anillo de convergencia.
-btx m in: Además, la integración y derivación se pueden hacer término a término con la serie. 
-btx: <b>Teorema</b>: Si una fución $f(z)$ es analítica en un anillo (caso importante: cuando es analítica en $|z-z_0| < R$ salvo en $z_0$), entonces tiene un desarrollo de Laurent en dicho anillo
+tx m in: Además, la integración y derivación se pueden hacer término a término con la serie. 
+tx: <b>Teorema</b>: Si una fución $f(z)$ es analítica en un anillo (caso importante: cuando es analítica en $|z-z_0| < R$ salvo en $z_0$), entonces tiene un desarrollo de Laurent en dicho anillo
 end_section
 

@@ -1,3 +1,4 @@
+single_page: yes
 layout: two-columns
 subject: Ampliación de Matemáticas
 title: Variable Compleja (1)
@@ -5,20 +6,20 @@ sections_order: [0, 1]
 
 begin_section, boxed cp
 tx wb sb cp: Plano Complejo
-btx: Cambio de coordenadas cartesianas a polares:
+tx: Cambio de coordenadas cartesianas a polares:
 eq cr: a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}
-btx: Cambio inverso:
+tx: Cambio inverso:
 eq cr: \rho \cdot e^{i\theta} \rightarrow \begin{cases} a = \rho \cos(\theta) \\ b = \rho \sin(\theta) \end{cases}
-btx: Argumentos de un complejo
+tx: Argumentos de un complejo
 eq cr: \arg(z) = \{ \theta + 2 k \pi, k \in \Z \}
 tx ss: donde $\theta$ está definido como antes
-btx: Argumento principal
+tx: Argumento principal
 eq cr: \text{Arg}(z) = \arg(z) \cap (-\pi, \pi)
 tx ss: donde $\theta$ está definido como antes
-btx: Logaritmos de un complejo
+tx: Logaritmos de un complejo
 eq cr: \log(z) = \ln(|z|) + i \arg(z)
 tx ss: donde $\arg(z)$ denota todos los argumentos posibles
-btx: Logaritmo principal
+tx: Logaritmo principal
 eq cr: \text{Log}(z) = \ln(|z|) + i \text{Arg}(z)
 tx ss: Nota: ni el argumento principal ni el logaritmo principal están definidos en la siguiente región:
 img 250 pc: arg.png
@@ -27,17 +28,17 @@ end_section
 begin_section, boxed cp
 tx wb sb cp: Funciones de variable compleja
 eq cp: f(z) = f(x + iy) = u(x, y) + iv(x, y)
-btx: Condiciones de Cauchy-Riemann: 
+tx: Condiciones de Cauchy-Riemann: 
 eq cr: \begin{cases} u_x(x, y) = v_y(x, y) \\ u_y(x, y) = -v_x(x, y) \end{cases}
-btx: f es <b>derivable</b> en $z_0$ si: 
+tx: f es <b>derivable</b> en $z_0$ si: 
 beq cr i1 ss: \text{ Satisface Cauchy-Riemann en }z_0 
 beq cr i1 ss: \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 
-btx: f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos. 
-btx: Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si:
+tx: f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos. 
+tx: Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si:
 eq cr: \nabla{h}^2 = 0
-btx: <b>Teorema</b>: Si f es analítica en $z_0$, entonces $u$ y $v$ son armónicas en $z_0$. 
-btx: <b>Teorema</b>: Si $A$ es simplemente conexo, y $u$ es una función armónica, existe $v$ (<b>armónica conjugada</b>) tal que $f=u+iv$ es analítica en $A$
-btx: Cálculo práctico de la armónica conjugada:
+tx: <b>Teorema</b>: Si f es analítica en $z_0$, entonces $u$ y $v$ son armónicas en $z_0$. 
+tx: <b>Teorema</b>: Si $A$ es simplemente conexo, y $u$ es una función armónica, existe $v$ (<b>armónica conjugada</b>) tal que $f=u+iv$ es analítica en $A$
+tx: Cálculo práctico de la armónica conjugada:
 btx i1 ss: Resolvemos $v_y = u_x$ integrando respecto a $y$, de donde $v$ queda definida salvo una función de $x$.
 btx i1 ss: Resolvemos $v_x = -u_y$ integrando respecto a $x$, y aplicamos condiciones iniciales si nos dan.
 end_section

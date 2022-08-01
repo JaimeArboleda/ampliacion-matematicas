@@ -1,12 +1,12 @@
-type: problems
+layout: one-column
 subject: Ampliación de Matemáticas
 title: Solución primer parcial 2021-2022
 
 begin_section
-pb: Plano Complejo
-sl th: 
-sl dv: 
-sl fn:
+tx cp: <b>Ejerdcicio 1Calcular la solución general de la ecuación en diferencias siguiente:
+eq cp: y^{n+1} - y^n -y^{n-1} - y^{n-2} = a 
+tx ss cp: Donde $a$ es un número real positivo.
+lin cp: <hr color="red"/>
 btx: Cambio de coordenadas cartesianas a polares:
 eq im: a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}
 btx: Cambio inverso:

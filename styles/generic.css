@@ -70,6 +70,7 @@ body {
     font-size: var(--normal-size) !important;
     clear: both;
     margin: 20px 10px;
+    widows: 3;
 }
 .section.boxed {
     margin: 10px;
@@ -84,6 +85,9 @@ body {
 body.one-column .section {
     width: 95vw;
 }
+body.one-column .section div {
+    margin: 10px;
+}
 body.two-columns .main {
     display: flex;
     flex-direction: column;
@@ -94,52 +98,65 @@ body.two-columns .section {
     width: 47vw;
 }
 
-
-
-
 .section.boxed {
     border-radius: 5px;
     border-style: solid;
     border-width: 2px;
 }
 
-.section.boxed.cb {
+.section.boxed.cb{
     border-color: var(--blue);
 }
-.section.boxed.cp {
+.section.boxed.cp{
     border-color: var(--purple);
 }
-.section.boxed.cr {
+.section.boxed.cr{
     border-color: var(--red);
 }
-.section.boxed.cg {
+.section.boxed.cg{
     border-color: var(--green);
 }
-.section.boxed.co {
+.section.boxed.co{
     border-color: var(--orange);
+}
+
+hr.cb {
+    border-top: 1px solid var(--blue);
+}
+hr.cp {
+    border-top: 1px solid var(--purple);
+}
+hr.cr {
+    border-top: 1px solid var(--red);
+}
+hr.cg {
+    border-top: 1px solid var(--green);
+}
+hr.co {
+    border-top: 1px solid var(--orange);
 }
 
 .section div {
     page-break-inside: avoid;
 }
 
-.section div.cb {
+.section div.cb{
     color: var(--blue) !important;
 }
-.section div.cp {
+.section div.cp{
     color: var(--purple) !important;
 }
-.section div.cr {
+.section div.cr{
     color: var(--red) !important;
 }
-.section div.cg {
+.section div.cg{
     color: var(--green) !important;
 }
-.section div.co {
+.section div.co{
     color: var(--orange) !important;
 }
 
-.section div.wb {
+.section div.wb{
     font-weight: 600 !important;
 }
 

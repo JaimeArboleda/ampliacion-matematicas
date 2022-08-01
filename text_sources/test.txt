@@ -1,4 +1,4 @@
-layout: one-column
+layout: two-columns
 subject: Ampliación de Matemáticas
 title: Variable Compleja (1)
 

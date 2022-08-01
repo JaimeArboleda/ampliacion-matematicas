@@ -41,7 +41,7 @@ var fs = require('fs');
 const { parse } = require('path');
 
 // Open file demo.txt in read mode
-fs.readFile(`../text_sources/${filename}`, 'utf8', function (err, data) {
+fs.readFile(filename, 'utf8', function (err, data) {
     page = parseData(data);
     prefix = filename.split(".")[0];
     fs.writeFile(filenameOut, page, err => {
@@ -134,7 +134,7 @@ function parseSection(section){
         if (classes.some(e => (e === "tx"))) {
             value = parseValue(value);
         } else if (classes.some(e => (e === "btx"))) {
-            value = '• ' + parseValue(value);
+            value = addBullet(parseValue(value));
         } else if (classes.some(e => (e === "eq"))){
             if (classes.some(e => (e === "pl"))){
                 value = "$$\\displaystyle{" + value + "}$$";
@@ -142,14 +142,18 @@ function parseSection(section){
                 value = "$$$$" + value + "$$$$";
             }
         } else if (classes.some(e => (e === "beq"))){
-            value = "• $$\\displaystyle{" + value + "}$$";
+            value = addBullet("$$\\displaystyle{" + value + "}$$");
         }
 
         if (classes.some(e => (e === "img"))){
             let imgSize = classes.filter(e => Number.isInteger(Number(e)))[0];
             let imgClasses = classes.filter(e => ! Number.isInteger(Number(e)));
             parsedSection += `<img class="${imgClasses.join(" ")}" src="../images/${value.trim()}" style="width: ${imgSize}px;">`
-        } else{
+        } else if (classes.some(e => (e === "ln"))){
+            parsedSection += `<hr/ width=50% align=left size=1 class="${key}">`
+        } else if (classes.some(e => (e === "nl"))){
+            parsedSection += `<br/>`
+        } else {
             parsedSection += `<div class="${key}"> ${value} </div>`
         }
     }
@@ -159,6 +163,11 @@ function parseSection(section){
 function parseValue(value){
     // converts single * to <i> and double * to <b>
     return value;
+}
+
+function addBullet(value){
+    // converts single * to <i> and double * to <b>
+    return `<ul><li>${value}</li></ul>`;
 }
 
 function combine(parsedSections, parsedMetadata, sectionsOrder, output){
