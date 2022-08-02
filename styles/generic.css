@@ -65,12 +65,21 @@ body {
     height: 90vh;
 }
 
+@page  
+{ 
+    size: auto;   /* auto is the initial value */ 
+    margin: 15mm 15mm 15mm 15mm;  
+} 
+
 .section {
     padding: 10px;
     font-size: var(--normal-size) !important;
     clear: both;
-    margin: 20px 10px;
+    margin: 0px 10px;
     widows: 3;
+}
+.section .katex {
+    font-size: var(--normal-size) !important;
 }
 .section.boxed {
     margin: 10px;
@@ -86,7 +95,17 @@ body.one-column .section {
     width: 95vw;
 }
 body.one-column .section div {
-    margin: 10px;
+    margin: calc(var(--katex-margin) + 10px);
+}
+body.two-columns .section div {
+    margin: var(--katex-margin);
+}
+body .section ul {
+    margin: 0px;
+    padding-inline-start: calc(var(--katex-margin) + 15px);
+}
+body .section ul div {
+    margin: 0px;
 }
 body.two-columns .main {
     display: flex;
@@ -140,23 +159,23 @@ hr.co {
     page-break-inside: avoid;
 }
 
-.section div.cb{
+.section div.cb, .section.cb{
     color: var(--blue) !important;
 }
-.section div.cp{
+.section div.cp, .section.cp{
     color: var(--purple) !important;
 }
-.section div.cr{
+.section div.cr, .section.cr{
     color: var(--red) !important;
 }
-.section div.cg{
+.section div.cg, .section.cg{
     color: var(--green) !important;
 }
-.section div.co{
+.section div.co, .section.co{
     color: var(--orange) !important;
 }
 
-.section div.wb{
+.section div.wb, .section div.wb .katex{
     font-weight: 600 !important;
 }
 
@@ -166,20 +185,43 @@ hr.co {
 .section div.i2 {
     padding-left: var(--indent-margin-2);
 }
+/*
+.section div li:before {
+    content: "";
+    margin-right: -5px !important;
+}
+.section div li{
+    text-indent: 5px !important;
+}
+.section div.i1 li:before {
+    content: "";
+    margin-right: calc(-5px - var(--indent-margin-1)) !important;
+}
+.section div.i2 li:before {
+    content: "";
+    margin-right: calc(-5px - var(--indent-margin-2)) !important;
+}
+.section div.i1 li{
+    text-indent: calc(5px + var(--indent-margin-1)) !important;
+}
+.section div.i2 li{
+    text-indent: calc(5px + var(--indent-margin-2)) !important;
+}
+*/
 .katex-display {
     margin: var(--katex-margin);
 }
 
-.section div.ss {
+.section div.ss, .section.ss, .section.ss .katex, .section div.ss .katex {
     font-size: var(--small-size) !important;
 }
-.section div.sn {
+.section div.sn, .section.sn, .section.sn .katex, .section div.sn .katex {
     font-size: var(--normal-size) !important;
 }
-.section div.sb {
+.section div.sb, .section.sb, .section.sb .katex, .section div.sb .katex  {
     font-size: var(--big-size) !important;
 }
-.section div.sh {
+.section div.sh, .section.sh, .section.sh .katex, .section div.sh .katex  {
     font-size: var(--huge-size) !important;
 }
 

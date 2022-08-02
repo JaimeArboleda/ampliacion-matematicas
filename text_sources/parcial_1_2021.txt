@@ -1,45 +1,79 @@
 layout: one-column
 subject: Ampliación de Matemáticas
-title: Solución primer parcial 2021-2022
+title: Solución primer parcial 2021-2022 (parte 1)
 
-begin_section
-tx cp: <b>Ejerdcicio 1Calcular la solución general de la ecuación en diferencias siguiente:
-eq cp: y^{n+1} - y^n -y^{n-1} - y^{n-2} = a 
+begin_section, cb
+tx cp: <b>Ejercicio 1</b>: Calcular la solución general de la ecuación en diferencias siguiente:
+eq cp: y^{n+1} - y^n -y^{n-1} + y^{n-2} = a 
 tx ss cp: Donde $a$ es un número real positivo.
-lin cp: <hr color="red"/>
-btx: Cambio de coordenadas cartesianas a polares:
-eq im: a + bi \rightarrow \begin{cases} \rho = \sqrt{a^2 + b^2} \\ \theta = \arctan(b/a) \end{cases}
-btx: Cambio inverso:
-eq im: \rho \cdot e^{i\theta} \rightarrow \begin{cases} a = \rho \cos(\theta) \\ b = \rho \sin(\theta) \end{cases}
-btx: Argumentos de un complejo
-eq im: \arg(z) = \{ \theta + 2 k \pi, k \in \Z \}
-tx m: donde $\theta$ está definido como antes
-btx: Argumento principal
-eq im: \text{Arg}(z) = \arg(z) \cap (-\pi, \pi)
-tx m: donde $\theta$ está definido como antes
-btx: Logaritmos de un complejo
-eq im: \log(z) = \ln(|z|) + i \arg(z)
-tx m: donde $\arg(z)$ denota todos los argumentos posibles
-btx: Logaritmo principal
-eq im: \text{Log}(z) = \ln(|z|) + i \text{Arg}(z)
-tx m: Nota: ni el argumento principal ni el logaritmo principal están definidos en la siguiente región:
-img 250: arg.png
+ln cp: 
+tx co: Estamos ante una ecuación lineal de coeficientes constantes. El procedimiento a seguir será: 
+btx co: Resolver las raíces del polinomio característico. 
+btx co: Calcular la solución de la ecuación homogénea asociada. 
+btx co: Calcular una solución particular de la ecuación completa. 
+btx co: Calcular la solución general de la ecuación completa. 
+ln co: 
+tx: Comencemos. El polinomio característico es el siguiente:
+eq: \lambda^{3}-\lambda^{2}-\lambda+1=0
+tx: Factorizamos usando Ruffini, resultando:
+eq: P(\lambda)=(\lambda-1)^{2}(\lambda+1)
+tx: Cuyas raíces son:
+eq: \begin{cases}\lambda_{1}=1 & \text { (doble) } \\ \lambda_{2}=-1 &  \text { (simple) }\end{cases}
+tx: Como se trata de una ecuación en diferencias de orden 3, el número de soluciones linealmente independientes es 3, de manera que la solución general de la ecuación homogénea asociada es:
+eq cr wb: y_{H}^{n}=\left(c_{0}+c_{1} n\right) 1^{n}+c_{2}(-1)^{n}=\left(c_{0}+c_{1} n\right)+c_{2}(-1)^{n}
+tx: Para ciertas constantes $c_0$, $c_1$ y $c_2$ (que se podrían determinar si nos dieran condiciones iniciales).
+tx: La solución particular de la completa la debemos calcular analizando la forma del término forzante $G(n)$ (que es $a$, escrito como $p_1^{*}(n) \cdot r_1^n +...+ p_w^{*}(n) \cdot r_w^n $)
+eq: G(n) = P_{1}^{*}(n) 1^{n}=a 1^{n} 
+tx: Como $r$ es raíz del polinomio característico de la ecuación homogénea, se prueban soluciones de la forma $y_{p}^{n}=Q_{1}(n) 1^{n}$, con $Q_{1}(n)$ polinomio de grado $\alpha_1 + \beta = 2$:
+btx: $\beta$ es el grado de $P_1^*$, que es 0
+btx: $\alpha_{1}$ es la multiplicidad de $r=1$ como raíz, que es 2
+nl:
+tx: Determinamos los coeficientes del polinomio $Q = a + bn + cn^2$ para que sea solución, lo que da:
+eq: c=\frac{a}{4} 
+tx ss: Nota: los otros dos coeficientes los podemos elegir como queramos; quedan sin determinar, porque en realidad estamos calculando todas las soluciones particulares, lo que incluye todas las soluciones de la homogénea. La posibilidad más sencilla es tomar ambos iguales a cero.
+tx: Por tanto, la solución general de la ecuación es: 
+eq cr wb: y^{n}=\left(c_{0}+c_{1} n+\frac{a}{4} n^{2}\right)+c_{2}(-1)^{n}
 end_section
 
-begin_section
-tl: Funciones de variable compleja
-eq: f(z) = f(x + iy) = u(x, y) + iv(x, y)
-btx: Condiciones de Cauchy-Riemann: 
-eq im: \begin{cases} u_x(x, y) = v_y(x, y) \\ u_y(x, y) = -v_x(x, y) \end{cases}
-btx: f es <b>derivable</b> en $z_0$ si: 
-beq im in m: \text{ Satisface Cauchy-Riemann en }z_0 
-beq im in m: \text{ } u_x, u_y, v_x, v_y \text{ son continuas en }z_0 
-btx: f es <b>analítica</b> en $z_0$ si existe un entorno alrededor de $z_0$ en el que f es derivable en todos los puntos. 
-btx: Una función $h: \R^2 \rightarrow \R$ es <b>armónica</b> si:
-eq im: \nabla{h}^2 = 0
-btx: <b>Teorema</b>: Si f es analítica en $z_0$, entonces $u$ y $v$ son armónicas en $z_0$. 
-btx: <b>Teorema</b>: Si $A$ es simplemente conexo, y $u$ es una función armónica, existe $v$ (<b>armónica conjugada</b>) tal que $f=u+iv$ es analítica en $A$
-btx: Cálculo práctico de la armónica conjugada:
-btx in m: Resolvemos $v_y = u_x$ integrando respecto a $y$, de donde $v$ queda definida salvo una función de $x$.
-btx in m: Resolvemos $v_x = -u_y$ integrando respecto a $x$, y aplicamos condiciones iniciales si nos dan.
+
+begin_section, cb
+tx cp: <b>Ejercicio 2</b>: Calcular el dominio de analiticidad de la función siguiente: 
+eq cp: f(z)=\log \left(\frac{z-a(1+i)}{z-a(1-i)}\right) \text{ con } a>0
+tx cp: Donde:
+eq cp: \log z=\operatorname{Ln}|z|+i \arg z, \quad-\frac{\pi}{2}<\arg z \leq \frac{3 \pi}{2}
+tx cp: Después, calcular $f'(z)$ donde sea analítica. Y por último, calcular la siguiente integral: 
+eq cp: \int_{\Gamma} f^{\prime}(z) f(z) d z
+tx cp: Donde la curva $\Gamma$ es la unión de dos rectas: $\Gamma=\Gamma_{1} \cup \Gamma_{2}$, con:
+btx cp: $\Gamma_1$ el segmento orientado con origen en $a(1+2 i)$ y final en el punto $-a$.
+btx cp: $\Gamma_2$ el segmento orientado con origen en $-a$ y final en $a$.
+ln cp: 
+tx co: En primer lugar, se trata de averiguar el dominio de definición de un logaritmo que no es el principal. El logaritmo principal está definido en base al argumento principal, pero si en lugar del argumento principal se toma otra definición del argumento, obtenemos otra rama del logaritmo. 
+tx co: Procederemos de la siguiente manera: 
+btx co: Encontraremos el dominio de definición de este logaritmo. 
+btx co: Encontraremos el dominio de definición de la función a la que se aplica el logaritmo, es decir, $\left(\frac{z-a(1+i)}{z-a(1-i)}\right)$
+btx co: La intersección de ambas condiciones nos dará el dominio pedido. 
+tx co: En segundo lugar, donde la función sea analítica calcularemos la derivada (usando las reglas habituales de derivación).
+tx co: Y por último, calcularemos la integral de línea intentando, si es posible, aplicar independiencia del camino para simplificar los cálculos. 
+ln co: 
+nl:
+tx: El argumento particular que nos han dado está definido en todo el plano salvo en el rayo rojo de la figura:
+img 200 pc: parcial_1_2021_1.png
+tx: Por tanto, el logaritmo tiene como dominio todo el plano complejo salvo el rayo anterior (dado por $\text{Re}(z)=0 \text{ , Im}(z)\leq 0$). 
+tx: Ahora, ¿para qué valores de $z$ la función $g(z)= \left(\frac{z-a(1+i)}{z-a(1-i)}\right)$ cumple $\text{Re}(g(z))=0 \text{ , Im}(g(z))\leq 0$?
+eq: g(z)=\frac{z-a(1+i)}{z-a(1-i)}=\frac{(x-a)+i(y-a)}{(x-a)+i(y+a)}=\frac{(x-a)^{2}+y^{2}-a^{2}}{(x-a)^{2}+(y+a)^{2}}+i \frac{-2 a(x-a)}{(x-a)^{2}+(y+a)^{2}}
+tx: Luego: 
+eq: \left\{\begin{array}{l}\operatorname{Re}(g(z))=0 \quad \Longleftrightarrow(x-a)^{2}+y^{2}=a^{2} \\ \operatorname{Im}(g(z)) \leq 0 \Longleftrightarrow-2 a(x-a) \leq 0 \stackrel{a>0}{\Longleftrightarrow} x \geq a\end{array}\right.
+tx: Por tanto, la región que debemos excluir del dominio es una semicircunferencia que no incluye los extremos. Podemos dibujarla para $a=1$ por ejemplo:
+img 200 pc: parcial_1_2021_2.png
+tx: Por otro lado, en los extremos de la circunferencia el denominador de $g(z)$ se anula, por lo que hay que quitarlos. Así que:
+eq wb cr: D=\mathbb{C}\smallsetminus \left\{z=a+a e^{i \theta} \text { con }-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\right\}
+tx: Para el segundo apartado, la derivada se calcula de manera inmediata:
+eq wb cr:f^{\prime}(z)=\frac{2 a i}{(z-a(1-i))(z-a(1+i))}=\frac{2 a i}{(z-a)^{2}+a^{2}}
+tx: Y para el tercer apartado, veamos si hay independencia del camino. La función que estamos integrando es $f(z)f'(z)$. Esta función es el producto de dos funciones analíticas (en su dominio), y por tanto es una función analítica (recordemos que integrar y derivar una función analítica da lugar a funciones analíticas).
+tx: Ahora, la curva donde integramos está en efecto dentro del dominio de analiticidad de la función, como se ve en la figura:
+img 400 pc: parcial_1_2021_3.png
+tx: De manera que hay independencia del camino. Además, el integrando tiene una primitiva inmediata: $\frac{(f(z))^2}{2}$. Por ello la integral solicitada es: 
+eq: I=\int_{\Gamma} f^{\prime}(z) f(z) d z=F\left(z_{2}\right)-F\left(z_{1}\right)=\frac{1}{2}\left(f\left(z_{2}\right)^{2}-f\left(z_{1} \right)^{2}\right) 
+tx: Es decir:
+eq wb cr: I =\frac{-1}{2}\left(\pi^{2}+(\operatorname{Ln} 3)^{2}\right)
 end_section
