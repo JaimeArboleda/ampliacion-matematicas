@@ -1,0 +1,47 @@
+single_page: yes
+layout: two-columns
+subject: Ampliación de Matemáticas
+title: Transformadas de Fourier
+
+begin_section, boxed cp
+tx wb sb cp: Transformada de Fourier
+tx: Dada una función $f:\R \rightarrow \mathbb{C}$ absolutamente integrable (es decir, $\int_{-\infty}^{\infty} |f| < \infty$), su <b>transformada de Fourier</b> es:
+eq cr: \mathfrak{F}(f(x))(w) = \hat{f}(w) = \int_{-\infty}^{\infty} f(x)e^{-iwx}dx
+tx: Se cumple que $\hat{f}$ es función acotada, y que $\mathfrak{F}$ es una transformación lineal
+tx: <b>Teorema de inversión</b>: Sea $f$ absolutamente integrable tal que $\hat{f}$ también es absolutamente integrable. Entonces:
+eq cr: \forall x: \text{f continua en x, } f(x) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \hat{f}(w) e^{iwx}dw
+tx i1 ss: A la integral anterior se denomina <b>transformada inversa</b>: 
+eq cr: \mathfrak{F}^{-1}(\hat{f}(w))(x) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \hat{f}(w) e^{iwx}dw
+tx: El <b>producto de convolución</b> de dos funciones absolutamente integrables $f$ y $g$ se define como: 
+eq cr: (f * g)(x) = \int_{-\infty}^{\infty}f(x-y)g(y)dy
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Transformadas importantes
+beq cr: \mathfrak{F}[e^{a|x|}] = -\frac{2a}{w^2+a^2}
+beq cr: \mathfrak{F}[\frac{1}{x^2+a^2}] = \frac{\pi}{a} e^{-a|w|}
+beq cr: \mathfrak{F}[e^{-ax^2}] = \left(\frac{\pi}{a}\right)^{\frac{1}{2}} e^{-\frac{w^2}{4a}}
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Propiedades
+eq pl cr: \mathfrak{F}[f^{n}(x)](w) = (iw)^n \hat{f}(w)
+eq pl cr: \mathfrak{F}[x^{n}f(x)] = i^n \frac{d^n}{dw^n} \hat{f}(w)
+eq pl cr: \mathfrak{F}[f(ax)](w) = \frac{1}{|a|} \hat{f}(\frac{w}{a})
+eq pl cr: \mathfrak{F}[f(x-a)](w) = e^{-iaw} \hat{f}(w)
+eq pl cr: \mathfrak{F}[f(x)e^{iax}](w) = \hat{f}(w-a)
+eq pl cr: \mathfrak{F}[(f*g)(x)](w) = \hat{f}(w)\cdot \hat{g}(w)
+eq pl cr: \mathfrak{F}[(f\cdot g)(x)](w) = \frac{1}{2 \pi}\hat{f}(w) * \hat{g}(w)
+eq pl cr: \mathfrak{F}[\hat{f}(w)](x) = e \pi f(-x)
+eq pl cr: \int_{-\infty}^{\infty} |f(x)|^2 dx = \int_{-\infty}^{\infty} |\hat{f}(w)|^2 dw 
+eq pl cr: \mathfrak{F}[f(x)\sin(ax)](w) = \frac{1}{2 i} [\hat{f}(w-a)- [\hat{f}(w+a)]
+eq pl cr: \mathfrak{F}[f(x)\cos(ax)](w) = \frac{1}{2} [\hat{f}(w-a)+ [\hat{f}(w+a)]
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Aplicaciones
+tx: Dada la siguiente EDP:
+eq: u_t = f(x) \cdot u_{xx} + g(x)\cdot u_x + u
+tx: Podemos resolverla aplicando transformada de Fourier respecto a x: 
+eq cr: \hat{u}_t = \hat{f}(x) \cdot (i w)^2 \cdot \hat{u} + \hat{g} \cdot (iw) \cdot \hat{u} + \hat{u}
+end_section

@@ -1,0 +1,54 @@
+single_page: yes
+layout: two-columns
+subject: Ampliación de Matemáticas
+title: Transformadas de Laplace
+
+begin_section, boxed cp
+tx wb sb cp: Transformada de Laplace
+tx: Dada una función $f:[0, \infty] \rightarrow \mathbb{C}$ de orden exponencial (es decir, $\exists \text{ } a,c > 0: \forall t \in [0, \infty] |f(t)| \leq c \cdot e^{at}$), su <b>transformada de Laplace</b> es:
+eq cr: \mathfrak{L}(f(t))(z) = \int_{0}^{\infty} f(t)e^{-zt}dt
+tx: Se trata de un operador lineal. 
+tx ss i1: $\mathfrak{L}(f) : D \rightarrow \mathbb{C}$, donde $D$ es una región del plano complejo llamada <b>región de convergencia</b>. Esta región es siempre de la forma $D = \{ Re(z) > a \}$, con $a$ determinado por el crecimiento exponencial de $f$.
+tx: La <b>transformada inversa</b> se define como: 
+eq cr: \mathfrak{L}^{-1}(F(z))(t) = \frac{1}{2 \pi i } \lim_{h\rightarrow \infty} \int_{b-ih}^{b+1h} e^{zt}F(z)dz
+tx ss i1: Donde $b$ se elige de manera que la recta $Re(z)=b$ esté dentro de la región de convergencia (dicha región no puede contener ningún polo de $F$).
+tx ss i1: La manera operativa de calcular la transformada inversa es aplicando el Teorema de los Residuos: Si $F$ tiene un número finito de singularidades aisladas (no esenciales), y si $lim_{|z|\rightarrow \infty} z \cdot F(z) = 0$, entonces podemos calcular la transformada inversa así: 
+eq cr: \mathfrak{L}^{-1}(F(z))(t) = \sum_{i=1}^{k} \text{Res}(F(z) e^{zt}, z_k)
+tx ss i1: Donde recorremos todos los polos de la función $F$.
+eq cr: 
+tx: La <b>función de Heaviside</b> se define como:
+eq cr: H(x) = \begin{cases} 0, & \text{si } x<0 \\ 1, & \text{si } x \geq 0 \end{cases}
+tx: Veamos algunas transformadas importantes: 
+eq pl cr: \mathfrak{L}\left[t^n\right] = \frac{n!}{z^{n+1}} \text{ , } \mathfrak{L}\left[t^p\right] = \frac{\Gamma(p+1)}{z^{p+1}} \text{ si p} \notin \mathbb{Z}
+eq pl cr: \mathfrak{L}\left[e^{-a t}\right] = \frac{1}{z + a} 
+eq pl cr: \mathfrak{L}\left[\sin(at)\right] = \frac{a}{z^{2} + a^2} \text{ , }  \mathfrak{L}\left[\cos(at)\right] = \frac{z}{z^{2} + a^2}
+eq pl cr: \mathfrak{L}\left[\sinh(at)\right] = \frac{a}{z^{2} - a^2} \text{ , }  \mathfrak{L}\left[\cosh(at)\right] = \frac{z}{z^{2} - a^2}
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Propiedades ($F$ denota $\mathfrak{L}(f)$): 
+eq pl cr: \mathfrak{L}\left[\int_0^t f(s) ds\right] = \frac{1}{z} F(z)
+eq pl cr: \mathfrak{L}\left[\frac{f(t)}{t}\right](z)= \int_t^{\infty} F(w)dw
+eq pl cr: \mathfrak{L}\left[f^{(n)}(t)\right]= z^n F(z) - z^{n-1} f(0) -...-f^{n-1}(0)
+eq pl cr: \mathfrak{L}\left[t^n f(t)\right](z)= (-1)^n F^(n)(z)
+eq pl cr: \mathfrak{L}\left[e^(at) f(t)\right](z)=  F(z-a)
+eq pl cr: \mathfrak{L}\left[f(t-a) H(t-a)\right](z)=  e^{-az}F(z)
+eq pl cr: \mathfrak{L}\left[f(at)\right](z)=  \frac{1}{a}F\left(\frac{z}{a}\right)
+eq pl cr: \mathfrak{L}\left[f(t)\sin(wt)\right](z)=  \frac{1}{2i}\left[F(z-iw) - F(z+iw)\right]
+eq pl cr: \mathfrak{L}\left[f(t)\cos(wt)\right](z)=  \frac{1}{2}\left[F(z-iw) + F(z+iw)\right]
+eq pl cr: \mathfrak{L}\left[f*g\right](z)=  F(z) \cdot G(z) \text{ , donde}
+eq pl cr ss: (f*g)(x) = \int_0 ^x f(x-s)g(s)ds
+end_section
+
+begin_section, boxed cp
+tx wb sb cp: Aplicaciones
+eq: a w_{tt} + b w_t + c w = g \text{ , con a, b y c constantes}
+tx: La ecuación se resuelve aplicando Laplace a ambos lados, lo que da: 
+eq cr ss: a [z^2 \hat{w}-zw(0)-w'(0)] + 
+eq cr ss: + b[z\hat{w} - w(0)]  + c \hat{w} = \hat{g} 
+tx: Y de ahí podemos despejar la solución para después aplicar la transformada inversa. 
+tx: Otra aplicación relacionada es el problema de Laplace con condición de Dirichlet: 
+eq ss: \begin{cases} \Delta u = 0\\ u(x,0) = 0 \end{cases}
+tx: Que se resuelve con la siguiente integral: 
+eq cr ss: u(x,y) = \frac{1}{\pi} \int_{-\infty}^{\infty} f(t) \frac{y}{(x-t)^2 + y^2}dt
+end_section
