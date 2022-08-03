@@ -1,0 +1,45 @@
+single_page: yes
+layout: two-columns
+subject: Ampliación de Matemáticas
+title: Ecuaciones Diferenciales de Segundo Orden (2)
+
+begin_section, boxed cp
+tx wb sb: Ecuación de Bessel
+eq: z^2\frac{d^2w}{dz^2} + z \frac{dw}{dz} + (z^2-p^2)w = 0 \text{, con } p \geq 0
+tx: Nos interesaremos por las soluciones alrededor del origen. El origen es un punto singular regular, y el tipo de singularidad depende del valor de $p$. Sabemos que hay dos soluciones independientes. 
+tx: Los autovalores de la matriz característica son $\pm p$. 
+btx: <b>Caso 1</b>: $p$ no es un número entero. En este caso, las dos soluciones linealmente independientes son las denominadas <b>funciones de Bessel de primera especie</b>, y se definen como:
+eq pl i2 cr: J_p(z) = \sum_{n=0}^{\infty} (-1)^{n} \frac{\left(\frac{z}{2}\right)^{2n+p}}{n! \Gamma(n+p+1)}
+eq pl i2 cr: J_{-p}(z) = \sum_{n=0}^{\infty} (-1)^{n} \frac{\left(\frac{z}{2}\right)^{2n-p}}{n! \Gamma(n-p+1)}
+btx i2 ss: Donde $\Gamma$ es la función Gamma de Euler, definida como: 
+eq i2 ss: \Gamma(x) = \int_0^{\infty} t^{x-1} e^{-t}dt
+btx: <b>Caso 2</b>: $p$ es un número entero. En este caso, las dos funciones de Bessel de primera especie son linealmente dependientes, así que tenemos que añadir otra solución denominada <b>función de Bessel de segunda especie</b>. Las soluciones en este caso son:
+eq pl i2 cr: J_p(z) = \sum_{n=0}^{\infty} (-1)^{n} \frac{\left(\frac{z}{2}\right)^{2n+p}}{n! \Gamma(n+p+1)}
+eq pl i2 cr: Y_{p}(z) = \lim_{\alpha \rightarrow p} \frac{\cos(\alpha\pi)J_\alpha(x) -J_{-\alpha}(z)}{\sin(\alpha\pi)}
+btx id ss: Nota: no usaremos apenas la función de Bessel de segunda especie. Es una función no acotada en el origen, por lo que si nos piden soluciones acotadas en el origen (lo habitual) sabemos que hay que usar la de primera especie. 
+end_section
+
+begin_section, boxed cp
+tx wb sb: Propiedades de las funciones de Bessel
+beq cr: J_0(0) = 1 \text{ , } J_p(0) = 0 \text{ } \forall p > 0 
+btx cr: $J_{-p}$ no es acotada en el origen. En particular, $\lim_{x\rightarrow 0^+} J_{-p}(x) = -\infty$
+beq cr: \left(x^p J_p(x)\right)' = x^p J_{p-1}(x)
+beq cr: \left(x^{-p} J_p(x)\right)' = - x^{-p} J_{p+1}(x)
+beq cr: J_p'(x) = J_{p-1}(x) - \frac{p}{x}J_{p}(x)
+beq cr: J_0'(x) = - J_1(x)
+end_section
+
+begin_section, boxed cp
+tx wb sb: Desarrollos en series de Bessel
+tx: Dado un $p \in \R$, sea $\alpha_j$ la sucesión de los ceros de $J_p(x)$
+tx: Se cumple entonces que las funciones 
+eq cr: \{ J_p(\alpha_1 \cdot x), J_p(\alpha_2 \cdot x), ... \}
+tx: Son un conjunto de funciones que: 
+btx: Son ortogonales respecto al siguiente producto: 
+eq cr: \langle f,g\rangle =\int _{0}^{1}xf(x)g(x)\,dx
+btx: Son linealmente independientes
+tx: Podemos desarrollar cualquier función $f$ continua en $(0, 1]$ tal que $f(1)=0$ (en $0$ la función puede irse a $\infty$) en series de Bessel. Es decir, dada $f$, podemos escribir:
+eq cr: f(x) = \sum_{i=1}^{\infty} c_j J_p(\alpha_j \cdot x)
+tx: Para ciertos coeficientes $c_j$, únicos.  
+tx: Estos desarrollos se usan para resolver EDPs con condiciones de contorno. 
+end_section

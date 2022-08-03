@@ -1,0 +1,40 @@
+single_page: yes
+layout: two-columns
+subject: Ampliación de Matemáticas
+title: Ecuaciones Diferenciales de Segundo Orden (1)
+
+begin_section, boxed cp
+tx wb sb: EDO lineal general de segundo orden
+eq: \frac{d^2w}{dz^2}(z) = p(z) \frac{dw}{dz}(z) + q(z)w(z) + r(z)
+tx ss: Decimos que la EDO es homogénea cuando $r(z) = 0$. 
+tx cr: <b>Teorema</b>: Toda solución de la EDO general se escribe como $w=w_p+w_h$, donde $w_p$ es una solución particular de la ecuación completa y $w_h$ es una solución de la homogénea. Además, las soluciones de la homogénea son un espacio vectorial de dimensión dos. 
+end_section
+
+begin_section, boxed cp
+tx wb sb: Clasificación de los puntos 
+tx: Decimos que $z_0$ es: 
+btx: Un <b>punto ordinario</b> cuando $p(z)$ y $q(z)$ son analíticas en un entorno de $z_0$. Si $R$ es el menor radio de convergencia de sus series de potencias, la solución $w(z)$ tiene un desarrollo válido en $D(z_0, R)$, y por recurrencia podemos obtener los coeficientes: 
+eq i1 pl cr: w(z) = \sum c_n z^n = \sum n(n-1) c_n z^{n-2} = 
+eq i1 pl cr: (\sum a_n z^n)(\sum c_n n z^{n-1}) + (\sum b_n z^n)(\sum c_n z^n) 
+tx i2 ss: Donde $a_n$ son los coeficientes de $p(z)$ y $b_n$ los de $q(z)$
+btx: Un <b>punto singular</b> en caso contrario. Puede ser:
+btx i1: Un <b>punto singular regular</b> cuando $zp(z)$ y $z^2q(z)$ son analíticas en $z_0$.
+btx i1: Un <b>punto singular irregular</b> en caso contrario. Estos puntos no se tratan en la asignatura. 
+end_section
+
+begin_section, boxed cp
+tx wb sb: Puntos singulares regulares
+tx: Escribimos la EDO homogénea de la siguiente manera:
+eq cr: \frac{d^2w}{dz^2}(z) = \frac{b(z)}{z} \frac{dw}{dz}(z) + \frac{a(z)}{z^2} w(z)
+tx: La situación depende de los autovalores de la siguiente matriz, $\lambda_1$ y $\lambda_2$, con $\lambda_1 \geq \lambda_2$
+eq cr: \left [ \begin{matrix} 0 & 1 \\ a(0) & b(0)+1 \end{matrix} \right]
+btx: <b>Caso 1</b>: $\lambda_1 \neq \lambda_2 \text{ y } \lambda_1 - \lambda_2 \notin \mathbb{N}$. En este caso, la solución general de la homogénea es: 
+eq cr: c_1 z^{\lambda_1} p_1(z) + c_2 z^{\lambda_2} p_2(z)
+tx i2 ss: Donde $c_1, c_2 \in \mathbb{C}$ cualesquiera y $p_1$, $p_2$ son funciones analíticas en $z_0$ que cumplen $p_1(0) = p_2(0) = 1$. Los coeficientes se pueden determinar por recurrencia. 
+btx: <b>Caso 2</b>: $\lambda_1 = \lambda_2$. En este caso, la solución general de la homogénea es: 
+eq cr: c_1 z^{\lambda_1} p_1(z) + c_2 \left[z^{\lambda_1} p_1(z)\ln(z) + z^{\lambda_2} p_2(z)\right] 
+tx i2 ss: Donde $c_1, c_2 \in \mathbb{C}$ cualesquiera y $p_1$, $p_2$ son funciones analíticas en $z_0$ que cumplen $p_1(0) = 1 \text{ , } p_2(0) = 0$ ($p_2$ puede ser nula). Los coeficientes se pueden determinar por recurrencia. 
+btx: <b>Caso 3</b>: $\lambda_1 \neq \lambda_2 \text{ y } \lambda_1 - \lambda_2 \in \mathbb{N}$. En este caso, la solución general de la homogénea es: 
+eq cr: c_1 z^{\lambda_1} p_1(z) + c_2 \left[\alpha z^{\lambda_1} p_1(z)\ln(z) + z^{\lambda_2} p_2(z)\right] 
+tx i2 ss: Donde $c_1, c_2 \in \mathbb{C}$ cualesquiera, $\alpha \in \mathbb{C}$ (puede ser 0) y $p_1$, $p_2$ son funciones analíticas en $z_0$ que cumplen $p_1(0) = 1$ ($p_2(0)$ puede o no ser nulo, al igual que $p_2$ puede ser nula). Los coeficientes se pueden determinar por recurrencia. 
+end_section
